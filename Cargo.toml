@@ -1,0 +1,17 @@
+[package]
+name = "audio-video-metadata"
+version = "0.1.0"
+authors = [
+  "Guillaume Gomez <guillaume1.gomez@gmail.com>"
+]
+
+description = "Audio/Video metadata parser"
+repository = "https://github.com/GuillaumeGomez/audio-video-metadata"
+license = "MIT"
+
+[lib]
+name = "audio_video_metadata"
+
+[dependencies]
+ogg_metadata = "0.3"
+mp4parse = { git = "https://github.com/GuillaumeGomez/mp4parse-rust" }
