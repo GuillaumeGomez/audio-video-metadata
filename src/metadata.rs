@@ -1,12 +1,13 @@
 use enums::{AudioType, Metadata, VideoType};
-use types::{Error, VideoMetadata};
+use types::{Error, AudioMetadata, VideoMetadata};
 
 use std::default::Default;
 use std::fs::File;
 use std::io::{Cursor, Read};
 
+use mp3;
 use mp4;
-use ogg::{self, AudioMetadata};
+use ogg::{self, AudioMetadata as ogg_audio};
 
 fn check_ogg(content: &[u8]) -> Result<Metadata, Error> {
     if let Ok(v) = ogg::read_format(&mut Cursor::new(content)) {
@@ -85,6 +86,19 @@ fn check_mp4(content: &[u8]) -> Result<Metadata, Error> {
     }
 }
 
+fn check_mp3(content: &[u8]) -> Result<Metadata, Error> {
+    match mp3::read_from_slice(content) {
+        Ok(meta) => {
+            Ok(Metadata::Audio(AudioMetadata {
+                format: AudioType::MP3,
+                duration: Some(meta.duration),
+                audio: Some("MP3".to_owned()),
+            }))
+        }
+        Err(_) => Err(Error::UnknownFormat),
+    }
+}
+
 pub fn get_format_from_file(filename: &str) -> Result<Metadata, Error> {
     if let Some(mut fd) = File::open(filename).ok() {
         let mut buf = Vec::new();
@@ -103,6 +117,8 @@ pub fn get_format_from_slice(content: &[u8]) -> Result<Metadata, Error> {
     if let Ok(meta) = check_ogg(content) {
         Ok(meta)
     } else if let Ok(meta) = check_mp4(content) {
+        Ok(meta)
+    } else if let Ok(meta) = check_mp3(content) {
         Ok(meta)
     }
     // Test other formats from here.
@@ -124,6 +140,21 @@ fn webm() {
         Err(err) => panic!("This doesn't work, got error: {}", err.error_description()),
     }
 }*/
+
+#[test]
+fn mp3() {
+    use std::time::Duration;
+
+    match get_format_from_file("assets/small.mp3") {
+        Ok(Metadata::Audio(metadata)) => {
+            assert_eq!(metadata.duration, Some(Duration::new(12, 376000000)));
+            assert_eq!(metadata.format, AudioType::MP3);
+            assert_eq!(metadata.audio, Some("MP3".to_owned()));
+        }
+        Ok(Metadata::Video(_)) => panic!("Expected audio type"),
+        Err(err) => panic!("This doesn't work, got error: {}", err.error_description()),
+    }
+}
 
 #[test]
 fn mp4() {
