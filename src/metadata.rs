@@ -1,9 +1,11 @@
 use enums::{AudioType, Metadata, VideoType};
 use types::{Error, VideoMetadata};
 
+use std::convert::AsRef;
 use std::default::Default;
 use std::fs::File;
 use std::io::{Cursor, Read};
+use std::path::Path;
 
 use mp4;
 use ogg::{self, AudioMetadata};
@@ -85,7 +87,8 @@ fn check_mp4(content: &[u8]) -> Result<Metadata, Error> {
     }
 }
 
-pub fn get_format_from_file(filename: &str) -> Result<Metadata, Error> {
+pub fn get_format_from_file<P>(filename: P) -> Result<Metadata, Error>
+where P: AsRef<Path> {
     if let Some(mut fd) = File::open(filename).ok() {
         let mut buf = Vec::new();
 
