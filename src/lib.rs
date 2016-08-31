@@ -1,3 +1,4 @@
+extern crate mp3_metadata as mp3;
 extern crate mp4parse as mp4;
 extern crate ogg_metadata as ogg;
 

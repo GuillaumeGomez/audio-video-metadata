@@ -2,6 +2,7 @@
 name = "audio-video-metadata"
 version = "0.1.0"
 dependencies = [
+ "mp3-metadata 0.1.1 (registry+https://github.com/rust-lang/crates.io-index)",
  "mp4parse 0.4.1 (git+https://github.com/GuillaumeGomez/mp4parse-rust)",
  "ogg_metadata 0.3.0 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
@@ -52,6 +53,11 @@ version = "0.3.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 
 [[package]]
+name = "mp3-metadata"
+version = "0.1.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+
+[[package]]
 name = "mp4parse"
 version = "0.4.1"
 source = "git+https://github.com/GuillaumeGomez/mp4parse-rust#2df5c22a153d88ed3ea2932e190821fbb51051e4"
@@ -62,7 +68,7 @@ dependencies = [
 
 [[package]]
 name = "ogg"
-version = "0.3.0"
+version = "0.3.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 dependencies = [
  "byteorder 0.5.3 (registry+https://github.com/rust-lang/crates.io-index)",
@@ -74,7 +80,7 @@ version = "0.3.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 dependencies = [
  "byteorder 0.5.3 (registry+https://github.com/rust-lang/crates.io-index)",
- "ogg 0.3.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "ogg 0.3.1 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 
 [[package]]
@@ -155,8 +161,9 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 "checksum kernel32-sys 0.2.2 (registry+https://github.com/rust-lang/crates.io-index)" = "7507624b29483431c0ba2d82aece8ca6cdba9382bff4ddd0f7490560c056098d"
 "checksum libc 0.2.15 (registry+https://github.com/rust-lang/crates.io-index)" = "23e3757828fa702a20072c37ff47938e9dd331b92fac6e223d26d4b7a55f7ee2"
 "checksum log 0.3.6 (registry+https://github.com/rust-lang/crates.io-index)" = "ab83497bf8bf4ed2a74259c1c802351fcd67a65baa86394b6ba73c36f4838054"
+"checksum mp3-metadata 0.1.1 (registry+https://github.com/rust-lang/crates.io-index)" = "499c8ba59a1e1853d1d23c7125769dec85caf77fa30d856961d0814d552708f7"
 "checksum mp4parse 0.4.1 (git+https://github.com/GuillaumeGomez/mp4parse-rust)" = "<none>"
-"checksum ogg 0.3.0 (registry+https://github.com/rust-lang/crates.io-index)" = "1a04e1763df6695b1560ca80140d5ceee5c848bc249e971da407affa8944c103"
+"checksum ogg 0.3.1 (registry+https://github.com/rust-lang/crates.io-index)" = "a62ee8250b69414eb127f1f455bc54210cad7cffab5993026fb4519d70e72832"
 "checksum ogg_metadata 0.3.0 (registry+https://github.com/rust-lang/crates.io-index)" = "e755cc735fa6faa709cb23048433d9201d6caa85fa96215386ccdd5e9b40ad01"
 "checksum rustc-serialize 0.3.19 (registry+https://github.com/rust-lang/crates.io-index)" = "6159e4e6e559c81bd706afe9c8fd68f547d3e851ce12e76b1de7914bab61691b"
 "checksum rusty-cheddar 0.3.3 (registry+https://github.com/rust-lang/crates.io-index)" = "8dc010f306531b5df42e62017cc989aef798d6d5d0f1c68bfaa92b69809d2aac"
