@@ -15,4 +15,4 @@ name = "audio_video_metadata"
 [dependencies]
 ogg_metadata = "0.3"
 mp3-metadata = "0.1"
-mp4parse = { git = "https://github.com/GuillaumeGomez/mp4parse-rust" }
+mp4parse = "0.4"
