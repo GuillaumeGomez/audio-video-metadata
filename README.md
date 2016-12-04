@@ -9,7 +9,7 @@ This library provides a little wrapper to get the metadata of the following vide
 And the following audio formats:
 
 * Ogg
-* MP3 (to be done)
+* MP3
 
 Other video/file types will return an error.
 
