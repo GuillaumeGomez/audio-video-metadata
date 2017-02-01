@@ -13,6 +13,6 @@ license = "MIT"
 name = "audio_video_metadata"
 
 [dependencies]
-ogg_metadata = "0.3"
+ogg_metadata = "0.4"
 mp3-metadata = "0.2"
-mp4parse = "0.5"
+mp4parse = "0.6"
