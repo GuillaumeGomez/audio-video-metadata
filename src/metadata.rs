@@ -74,6 +74,7 @@ fn check_mp4(content: &[u8]) -> Result<Metadata, Error> {
                         mp4::AudioCodecSpecific::ES_Descriptor(_) => "ES".to_owned(),
                         mp4::AudioCodecSpecific::FLACSpecificBox(_) => "FLAC".to_owned(),
                         mp4::AudioCodecSpecific::OpusSpecificBox(_) => "Opus".to_owned(),
+                        mp4::AudioCodecSpecific::MP3 => "MP3".to_owned(),
                     });
                 }
                 Some(mp4::SampleEntry::Unknown) | None => {}
