@@ -1,6 +1,6 @@
 [package]
 name = "audio-video-metadata"
-version = "0.1.3"
+version = "0.1.4"
 authors = [
   "Guillaume Gomez <guillaume1.gomez@gmail.com>"
 ]
@@ -14,5 +14,5 @@ name = "audio_video_metadata"
 
 [dependencies]
 ogg_metadata = "0.4"
-mp3-metadata = "0.2"
+mp3-metadata = "0.3"
 mp4parse = "0.7"

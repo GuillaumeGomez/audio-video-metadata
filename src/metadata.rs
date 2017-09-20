@@ -152,7 +152,7 @@ fn mp3() {
 
     match get_format_from_file("assets/small.mp3") {
         Ok(Metadata::Audio(metadata)) => {
-            assert_eq!(metadata.duration, Some(Duration::new(12, 376000000)));
+            assert_eq!(metadata.duration, Some(Duration::new(12, 408162800)));
             assert_eq!(metadata.format, AudioType::MP3);
             assert_eq!(metadata.audio, Some("MP3".to_owned()));
         }
