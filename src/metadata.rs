@@ -67,6 +67,7 @@ fn check_mp4(content: &[u8]) -> Result<Metadata, Error> {
                     meta.video = Some(match v.codec_specific {
                         mp4::VideoCodecSpecific::AVCConfig(_) => "AVC".to_owned(), // need more info
                         mp4::VideoCodecSpecific::VPxConfig(_) => "VPx".to_owned(), // need more info
+                        mp4::VideoCodecSpecific::ESDSConfig(_) => "ESDS".to_owned(), // need more info
                     });
                 }
                 Some(mp4::SampleEntry::Audio(a)) => {
@@ -75,6 +76,7 @@ fn check_mp4(content: &[u8]) -> Result<Metadata, Error> {
                         mp4::AudioCodecSpecific::FLACSpecificBox(_) => "FLAC".to_owned(),
                         mp4::AudioCodecSpecific::OpusSpecificBox(_) => "Opus".to_owned(),
                         mp4::AudioCodecSpecific::MP3 => "MP3".to_owned(),
+                        mp4::AudioCodecSpecific::LPCM => "LPCM".to_owned(),
                     });
                 }
                 Some(mp4::SampleEntry::Unknown) | None => {}
